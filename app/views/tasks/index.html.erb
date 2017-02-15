@@ -1,19 +1,72 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Tasks</h1>
+<h1>To Do</h1>
 
 <table>
   <thead>
     <tr>
       <th>Content</th>
+      <th>State</th>
       <th colspan="5"></th>
     </tr>
   </thead>
 
   <tbody>
-    <% @tasks.each do |task| %>
+    <% @to_do.each do |task| %>
       <tr>
         <td><%= task.content %></td>
+        <td><%= task.state %></td>
+        <td><%= link_to 'Show', task , class: "btn btn-default btn-group-sm" %></td>
+        <td><%= link_to 'Edit', edit_task_path(task), class: "btn btn-default btn-group-sm"  %></td>
+        <td><%= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-default btn-group-sm" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<h1>Doing</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Content</th>
+      <th>State</th>
+      <th colspan="5"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @doing.each do |task| %>
+      <tr>
+        <td><%= task.content %></td>
+        <td><%= task.state %></td>
+        <td><%= link_to 'Show', task , class: "btn btn-default btn-group-sm" %></td>
+        <td><%= link_to 'Edit', edit_task_path(task), class: "btn btn-default btn-group-sm"  %></td>
+        <td><%= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-default btn-group-sm" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<h1>Done</h1>
+<table>
+  <thead>
+    <tr>
+      <th>Content</th>
+      <th>State</th>
+      <th colspan="5"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @done.each do |task| %>
+      <tr>
+        <td><%= task.content %></td>
+        <td><%= task.state %></td>
         <td><%= link_to 'Show', task , class: "btn btn-default btn-group-sm" %></td>
         <td><%= link_to 'Edit', edit_task_path(task), class: "btn btn-default btn-group-sm"  %></td>
         <td><%= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-default btn-group-sm" %></td>
